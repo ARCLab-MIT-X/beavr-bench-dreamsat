@@ -1,0 +1,4 @@
+[submodule "src/beavr_configs/assets/mujoco_menagerie"]
+	path = src/beavr_configs/assets/mujoco_menagerie
+	url = git@github.com:google-deepmind/mujoco_menagerie.git
+	ignore = dirty

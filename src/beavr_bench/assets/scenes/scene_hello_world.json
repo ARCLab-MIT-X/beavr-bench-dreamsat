@@ -1,0 +1,76 @@
+{
+  "name": "template_scene",
+  "robot_indices": {
+    "mobile_tidybot_right": {
+      "qpos": [
+        0,
+        1,
+        2
+      ],
+      "ctrl": [
+        0,
+        1,
+        2
+      ]
+    },
+    "arm_xarm7_right": {
+      "qpos": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "ctrl": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    "gripper_xarm7_right": {
+      "qpos": [
+        0
+      ],
+      "ctrl": [
+        10
+      ]
+    }
+  },
+  "initial_ctrl": [
+    0.0,
+    0.0,
+    -1.57,
+    0.0,
+    -0.4,
+    0.0,
+    0.4,
+    0.0,
+    0.8,
+    0.0,
+    0.0
+  ],
+  "cameras": [],
+  "robots": [
+    {
+      "full_id": "mobile_tidybot_right",
+      "config_name": "mobile_tidybot",
+      "side": "right"
+    },
+    {
+      "full_id": "arm_xarm7_right",
+      "config_name": "arm_xarm7",
+      "side": "right"
+    },
+    {
+      "full_id": "gripper_xarm7_right",
+      "config_name": "gripper_xarm7",
+      "side": "right"
+    }
+  ]
+}

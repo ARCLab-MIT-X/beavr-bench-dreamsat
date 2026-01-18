@@ -1,0 +1,56 @@
+{
+  "name": "vanishing_blueprint",
+  "robot_indices": {
+    "arm_xarm7_right": {
+      "qpos": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "ctrl": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    "gripper_xarm7_right": {
+      "qpos": [
+        0
+      ],
+      "ctrl": [
+        7
+      ]
+    }
+  },
+  "initial_ctrl": [
+    0.0,
+    -0.4,
+    0.0,
+    0.4,
+    0.0,
+    0.8,
+    0.0,
+    0.0
+  ],
+  "cameras": [],
+  "robots": [
+    {
+      "full_id": "arm_xarm7_right",
+      "config_name": "arm_xarm7",
+      "side": "right"
+    },
+    {
+      "full_id": "gripper_xarm7_right",
+      "config_name": "gripper_xarm7",
+      "side": "right"
+    }
+  ]
+}
