@@ -61,8 +61,8 @@ We include 4 main scenes designed to test physical intelligence. For a detailed 
 
 ### Server Swap
 
-![Server Swap Overhead](media/videos/serverswap_overhead.gif)  // line 64 updated
-![Server Swap Egocentric](media/videos/serverswap_ego.gif)  // line 65 updated
+![Server Swap Overhead](media/videos/serverswap_overhead.gif)
+![Server Swap Egocentric](media/videos/serverswap_ego.gif)
 
 ### Vanishing Blueprint
 
