@@ -1,4 +1,4 @@
-# 🦫 BEAVR Sim
+# 🦫 BEAVR Bench
 
 ## GPU-Accelerated RL & Imitation Learning for Robotic Manipulation
 
@@ -9,9 +9,9 @@
 [![arXiv](https://img.shields.io/badge/arXiv-2508.09606-b31b1b.svg)](https://arxiv.org/abs/2508.09606)
 [![HuggingFace](https://img.shields.io/badge/🤗-Datasets-yellow)](https://huggingface.co/collections/arclabmit/beavr-sim)
 
-**BEAVR Sim** is a high-performance simulation benchmark suite designed to test and evaluate physical AI algorithms. It unifies state-of-the-art tools like **[MuJoCo](https://github.com/google-deepmind/mujoco)**, **[MuJoCo Menagerie](https://github.com/google-deepmind/mujoco_menagerie)**, **[Isaac Lab](https://github.com/mujocolab/mjlab)**, and **[LeRobot](https://github.com/huggingface/lerobot)** into a single, cohesive platform for robotic learning.
+**BEAVR Bench** is a high-performance simulation benchmark suite designed to test and evaluate physical AI algorithms. It unifies state-of-the-art tools like **[MuJoCo](https://github.com/google-deepmind/mujoco)**, **[MuJoCo Menagerie](https://github.com/google-deepmind/mujoco_menagerie)**, **[Isaac Lab](https://github.com/mujocolab/mjlab)**, and **[LeRobot](https://github.com/huggingface/lerobot)** into a single, cohesive benchmarking platform for robotic learning.
 
-Whether you are researching imitation learning, reinforcement learning, or simply need a simulation environment for your robot, BEAVR Sim provides the performance needed to iterate quickly.
+Whether you are researching imitation learning, reinforcement learning, BEAVR Bench provides the performance needed to iterate quickly.
 
 ---
 
@@ -97,7 +97,7 @@ We include 4 main scenes designed to test physical intelligence. For a detailed 
 
 ## Usage
 
-BEAVR Sim is fully compatible with LeRobot scripts.
+BEAVR Bench is fully compatible with LeRobot scripts.
 
 ### Training a Policy
 
@@ -152,9 +152,9 @@ This project is licensed under the **Apache License 2.0**. See the [LICENSE](LIC
 
 ## Citations
 
-If you use BEAVR Sim in your research, please cite the following works:
+If you use BEAVR Bench in your research, please cite the following works:
 
-### BEAVR-teleop
+### BEAVR Teleop
 
 ```bibtex
 @misc{posadasnava2025beavr,
