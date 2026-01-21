@@ -19,8 +19,9 @@ Whether you are researching imitation learning, reinforcement learning, BEAVR Be
 
 - [Key Features](#key-features)
 - [Installation](#installation)
-- [Demonstrations](#demonstrations)
+- [Docker](#docker)
 - [Usage](#usage)
+- [Releases](#releases)
 - [Getting Help](#getting-help)
 - [Contributing](#contributing)
 - [License](#license)
@@ -40,7 +41,7 @@ Whether you are researching imitation learning, reinforcement learning, BEAVR Be
 
 ## Installation
 
-### Prerequisites
+### Installation Prerequisites
 
 - [uv](https://docs.astral.sh/uv/) (Python package manager)
 - CUDA-capable GPU (recommended)
@@ -57,6 +58,41 @@ uv sync
 
 # 3. Verify installation
 uv run beavr-eval --help
+```
+
+---
+
+## Docker
+
+BEAVR Bench is best run with Docker to ensure all system dependencies (MuJoCo, EGL, OpenGL) are correctly configured.
+
+### Docker Prerequisites
+
+- [Docker](https://docs.docker.com/get-docker/)
+- [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html) (for GPU support)
+
+### Building the Image
+
+```bash
+docker build -t beavr-bench .
+```
+
+### Running with GPU Support
+
+To run tests inside the container:
+
+```bash
+docker run --rm --gpus all \
+    -e MUJOCO_GL=egl \
+    beavr-bench
+```
+
+To run a specific script:
+
+```bash
+docker run --rm --gpus all \
+    -e MUJOCO_GL=egl \
+    beavr-bench uv run beavr-eval --help
 ```
 
 ---
@@ -122,6 +158,27 @@ beavr-eval \
     --env.scene=scene_shellgame \
     --eval.n_episodes=50
 ```
+
+---
+
+## Releases
+
+This project uses automated releases via GitHub Actions.
+
+### Triggering a Release
+
+To create a new release:
+
+1. Update the version in `pyproject.toml`.
+2. Commit and push the change.
+3. Create and push a new tag:
+
+```bash
+git tag v1.0.1
+git push origin v1.0.1
+```
+
+The GitHub Action will automatically build the package and create a new GitHub Release with the artifacts attached.
 
 ---
 

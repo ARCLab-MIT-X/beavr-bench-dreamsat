@@ -1,0 +1,16 @@
+.git
+.github
+.venv
+.pytest_cache
+.ruff_cache
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.DS_Store
+outputs/
+data/
+uv.lock
+# We don't ignore uv.lock because Dockerfile uses it for sync
+!uv.lock
+!pyproject.toml
