@@ -82,11 +82,6 @@ class ServerSwapRules(BaseRules):
         # Initial failing slot selection (will be overwritten by randomize_scene in TeleopTask.reset)
         self._select_failing_slot(np.random.default_rng(config.failing_slot_seed))
 
-        logger.info(
-            f"ServerPlacement: Target slot {self._failing_slot_idx} "
-            f"will show orange LED for {config.cue_duration}s"
-        )
-
     def _select_failing_slot(self, rng: np.random.Generator) -> None:
         """Select which slot is the goal using the provided RNG."""
         self._failing_slot_idx = int(rng.integers(0, len(self._led_material_names)))
@@ -133,7 +128,6 @@ class ServerSwapRules(BaseRules):
             vertical_dist = abs(replacement_pos[2] - target_pos[2])
 
             if dist < tolerance and vertical_dist < 0.05:
-                logger.info(f"FAILURE: Sled placed in wrong slot {idx}")
                 return True
 
         return False
@@ -149,12 +143,10 @@ class ServerSwapRules(BaseRules):
             if sim_time >= self.config.cue_duration:
                 self._state = ServerSwapState.VANISHED
                 self._update_leds()
-                logger.info("ServerSwap: LED vanished! All drives look identical now.")
 
         elif self._state == ServerSwapState.VANISHED:
             # Transition to testing state after a brief moment
             self._state = ServerSwapState.TESTING
-            logger.info("ServerSwap: Testing active. Swap the failing drive.")
 
         elif self._state == ServerSwapState.TESTING:
             # Keep all LEDs green
@@ -164,10 +156,8 @@ class ServerSwapRules(BaseRules):
             if not self._success and not self._failure:
                 if self._check_placement_success(data):
                     self._success = True
-                    logger.info("SUCCESS! Sled placed in target slot.")
                 elif self._check_wrong_placement(data):
                     self._failure = True
-                    logger.info("FAILURE! Sled placed in wrong slot.")
 
         # --- Compute reward and termination ---
         truncated = self._step_count >= self.config.max_steps
@@ -197,7 +187,6 @@ class ServerSwapRules(BaseRules):
         self._success = False
         self._failure = False
         # LEDs will be updated in randomize_scene which is called by TeleopTask.reset
-        logger.info(f"Reset: CUE phase for {self.config.cue_duration}s")
 
     def _update_leds(self) -> None:
         """Update LED colors in the model based on current state."""
@@ -212,4 +201,3 @@ class ServerSwapRules(BaseRules):
         """Select a new failing slot using the provided RNG."""
         self._select_failing_slot(np_random)
         self._update_leds()
-        logger.info(f"Randomized failing slot: {self._failing_slot_idx}")

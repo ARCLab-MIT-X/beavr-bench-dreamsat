@@ -81,8 +81,6 @@ class ShellGameRules(BaseRules):
         self._target_slot_idx = 0
         self._num_swaps = 0
 
-        logger.info(f"Shell Game: Showing ball for {self._timer_showing}s")
-
     def _generate_shuffle(self, rng: np.random.Generator) -> None:
         """Generate deterministic slot swaps and compute final ball slot."""
         self._num_swaps = int(rng.integers(self.config.shuffle_min_swaps, self.config.shuffle_max_swaps + 1))
@@ -143,7 +141,6 @@ class ShellGameRules(BaseRules):
             if sim_time >= self._timer_showing:
                 self._state = self.STATE_COVERING
                 self._state_start_time = sim_time
-                logger.info("Covering ball...")
 
         elif self._state == self.STATE_COVERING:
             dur = sim_time - self._state_start_time
@@ -159,7 +156,6 @@ class ShellGameRules(BaseRules):
             if t >= 1.0:
                 self._state = self.STATE_SHUFFLING
                 self._state_start_time = sim_time
-                logger.info(f"Shuffling ({self._num_swaps} swaps)...")
 
         elif self._state == self.STATE_SHUFFLING:
             swap_dur = 1.0 / self._swaps_per_sec
@@ -210,7 +206,6 @@ class ShellGameRules(BaseRules):
                     self._current_swap_idx += 1
 
                 self._state = self.STATE_TESTING
-                logger.info("Teleop active! Find the ball.")
                 self._initial_cup_heights = [float(data.xpos[bid][2]) for bid in self._cup_body_ids]
                 self._sync_ball(data)
 
@@ -225,15 +220,10 @@ class ShellGameRules(BaseRules):
                     lifted_slot = self._cup_to_slot[i]
                     if self._cup_lifted is None:
                         self._cup_lifted = lifted_slot
-                        logger.info(
-                            f"FIRST LIFT: cup={i}, slot={lifted_slot}, target={self._target_slot_idx}"
-                        )
                         if lifted_slot == self._target_slot_idx:
                             self._success = True
-                            logger.info("SUCCESS! Lifted correct cup!")
                         else:
                             self._failure = True
-                            logger.info(f"FAILURE! Wrong cup. Expected slot {self._target_slot_idx}")
                     break
 
         terminated = self._success or self._failure
@@ -263,7 +253,6 @@ class ShellGameRules(BaseRules):
         self._failure = False
         self._cup_to_slot = list(range(len(self._cup_names)))
         # Do NOT generate shuffle here; randomize_scene will do it.
-        logger.info(f"Reset: SHOWING for {self._timer_showing}s...")
 
     def get_shuffle_sequence(self) -> list[tuple[int, int]]:
         return self._shuffle_sequence.copy()
@@ -271,6 +260,3 @@ class ShellGameRules(BaseRules):
     def randomize_scene(self, data: mujoco.MjData, np_random: np.random.Generator) -> None:
         """Generate a new shuffle sequence."""
         self._generate_shuffle(np_random)
-        logger.info(
-            f"Shuffle randomized: {len(self._shuffle_sequence)} swaps, target slot {self._target_slot_idx}"
-        )

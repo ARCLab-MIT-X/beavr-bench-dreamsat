@@ -104,7 +104,6 @@ class ReachRules(BaseRules):
 
             data.qpos[qpos_adr] = init_x + np_random.uniform(-rand_range, rand_range)
             data.qpos[qpos_adr + 1] = init_y + np_random.uniform(-rand_range, rand_range)
-            logger.debug(f"Randomized {self.config.target_object} (range={rand_range})")
 
     def reset(self) -> None:
         super().reset()

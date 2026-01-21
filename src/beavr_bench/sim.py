@@ -112,7 +112,6 @@ def load_baked_scene(scene_name: str) -> BakedScene:
     # Meshes are resolved automatically because they are in a 'meshes/'
     # folder relative to the XML, and the XML contains <compiler meshdir="meshes"/>.
     model = mujoco.MjModel.from_xml_path(str(xml_path))
-    logger.info(f"Loaded MuJoCo model from {xml_path}")
 
     # Load metadata from JSON
     with open(json_path) as f:
