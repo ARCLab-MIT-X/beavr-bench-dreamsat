@@ -75,15 +75,11 @@ class VanishingBlueprintRules(BaseRules):
         # Initial blueprint selection (will be overwritten by randomize_scene in TeleopTask.reset)
         self._select_blueprint(np.random.default_rng(config.shuffle_seed))
 
-        logger.info(f"Vanishing Blueprint: Showing hologram for {config.show_duration}s...")
-
     def _select_blueprint(self, rng: np.random.Generator) -> None:
         """Generate a random stack order (bottom to top)."""
         indices = list(range(len(self._block_names)))
         rng.shuffle(indices)
         self._blueprint_order = indices
-        order_names = [self._block_names[i] for i in self._blueprint_order]
-        logger.info(f"Blueprint order (bottom to top): {order_names}")
 
     def _position_holograms(self, data: mujoco.MjData, visible: bool) -> None:
         """Position hologram blocks to show the blueprint or hide them."""
@@ -146,7 +142,6 @@ class VanishingBlueprintRules(BaseRules):
             if sim_time >= self.config.show_duration:
                 self._state = self.STATE_TESTING
                 self._update_holograms(data)
-                logger.info("Hologram vanished! Replicate the stack.")
 
         elif self._state == self.STATE_TESTING:
             # Hide holograms (keep them hidden)
@@ -155,7 +150,6 @@ class VanishingBlueprintRules(BaseRules):
             # Check for success
             if not self._success and self._check_stack_order(data):
                 self._success = True
-                logger.info("SUCCESS! Stack matches blueprint!")
 
         # --- Compute reward and termination ---
         truncated = self._step_count >= self.config.max_steps
@@ -177,8 +171,6 @@ class VanishingBlueprintRules(BaseRules):
         super().reset()
         self._state = self.STATE_SHOWING
         self._success = False
-        # Do NOT generate blueprint here; randomize_scene will do it.
-        logger.info(f"Reset: SHOWING for {self.config.show_duration}s...")
 
     def _update_holograms(self, data: mujoco.MjData) -> None:
         """Update hologram positions based on current state."""

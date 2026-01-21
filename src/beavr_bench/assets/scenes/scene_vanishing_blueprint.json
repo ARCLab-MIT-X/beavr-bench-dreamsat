@@ -40,7 +40,14 @@
     0.0,
     0.0
   ],
-  "cameras": [],
+  "cameras": [
+    {
+      "name": "overhead",
+      "obs_key": "overhead",
+      "width": 640,
+      "height": 480
+    }
+  ],
   "robots": [
     {
       "full_id": "arm_xarm7_right",
