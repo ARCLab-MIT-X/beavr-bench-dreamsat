@@ -2,15 +2,29 @@
 
 ## GPU-Accelerated RL & Imitation Learning for Robotic Manipulation
 
-![License](https://img.shields.io/badge/license-Apache_2.0-blue.svg)
-![Python](https://img.shields.io/badge/python-3.12-blue.svg)
-![MuJoCo](https://img.shields.io/badge/MuJoCo-Menagerie-orange)
-![LeRobot](https://img.shields.io/badge/LeRobot-Compatible-yellow)
-![GPU](https://img.shields.io/badge/GPU-Acceleration-green)
+[![License](https://img.shields.io/badge/license-Apache_2.0-blue.svg)](LICENSE)
+[![Python](https://img.shields.io/badge/python-3.12-blue.svg)](https://www.python.org/)
+[![CI](https://github.com/ARCLab-MIT/beavr-bench/actions/workflows/ci.yml/badge.svg)](https://github.com/ARCLab-MIT/beavr-bench/actions/workflows/ci.yml)
+[![GitHub Stars](https://img.shields.io/github/stars/ARCLab-MIT/beavr-bench?style=social)](https://github.com/ARCLab-MIT/beavr-bench)
+[![arXiv](https://img.shields.io/badge/arXiv-2508.09606-b31b1b.svg)](https://arxiv.org/abs/2508.09606)
+[![HuggingFace](https://img.shields.io/badge/🤗-Datasets-yellow)](https://huggingface.co/collections/arclabmit/beavr-sim)
 
 **BEAVR Sim** is a high-performance simulation benchmark suite designed to test and evaluate physical AI algorithms. It unifies state-of-the-art tools like **[MuJoCo](https://github.com/google-deepmind/mujoco)**, **[MuJoCo Menagerie](https://github.com/google-deepmind/mujoco_menagerie)**, **[Isaac Lab](https://github.com/mujocolab/mjlab)**, and **[LeRobot](https://github.com/huggingface/lerobot)** into a single, cohesive platform for robotic learning.
 
 Whether you are researching imitation learning, reinforcement learning, or simply need a simulation environment for your robot, BEAVR Sim provides the performance needed to iterate quickly.
+
+---
+
+## 📑 Table of Contents
+
+- [Key Features](#key-features)
+- [Installation](#installation)
+- [Demonstrations](#demonstrations)
+- [Usage](#usage)
+- [Getting Help](#getting-help)
+- [Contributing](#contributing)
+- [License](#license)
+- [Citations](#citations)
 
 ---
 
@@ -47,7 +61,7 @@ uv run beavr-eval --help
 
 ---
 
-## 🎥 Demonstrations
+## Demonstrations
 
 We include 4 main scenes designed to test physical intelligence. For a detailed breakdown of rules and task definitions, see [**SCENES.md**](docs/SCENES.md).
 
@@ -66,7 +80,7 @@ We include 4 main scenes designed to test physical intelligence. For a detailed 
   <tr>
     <td align="center">
       <b>Server Swap</b><br>
-      <img src="media/videos/serverswap_ego.gif" width="400px">
+      <img src="media/videos/serverswap.gif" width="400px">
     </td>
     <td align="center">
       <b>Vanishing Blueprint</b><br>
@@ -94,7 +108,7 @@ beavr-train \
     --policy.repo_id=arclabmit/xarm7_act_beavrsim_shellgame_model \
     --dataset.video_backend=pyav \
     --env.type=beavr \
-    --env.scene=scene_serverswap \
+    --env.scene=scene_shellgame \
     --eval.batch_size=25 \
     --wandb.enable=true \
     --job_name=xarm7_act_beavrsim_shellgame_model
@@ -116,6 +130,23 @@ beavr-eval \
 We welcome contributions! Whether it's adding a new robot from the Menagerie, designing a new task, or fixing a bug.
 
 Please check out our [Contributing Guidelines](CONTRIBUTING.md) and [Code of Conduct](CODE_OF_CONDUCT.md).
+
+---
+
+## Getting Help
+
+Need assistance? Here's how to get support:
+
+- **📖 Documentation**: Check out [SCENES.md](docs/SCENES.md) for detailed task descriptions.
+- **🐛 Bug Reports**: [Open an issue](https://github.com/ARCLab-MIT/beavr-bench/issues/new) on GitHub.
+- **💬 Discussions**: Join the conversation in [GitHub Discussions](https://github.com/ARCLab-MIT/beavr-bench/discussions).
+- **📧 Contact**: Reach out to the maintainers at [arclab@mit.edu](mailto:arclab@mit.edu).
+
+---
+
+## License
+
+This project is licensed under the **Apache License 2.0**. See the [LICENSE](LICENSE) file for details.
 
 ---
 
@@ -184,4 +215,6 @@ If you use BEAVR Sim in your research, please cite the following works:
 
 ---
 
-Built at [MIT's ARCLab](https://github.com/ARCLab-MIT) for Space Robotics Research
+<p align="center">
+  Built with ❤️ at <a href="https://github.com/ARCLab-MIT"><b>MIT's ARCLab</b></a> for Space Robotics Research
+</p>
