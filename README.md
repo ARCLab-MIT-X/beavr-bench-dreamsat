@@ -140,7 +140,7 @@ Need assistance? Here's how to get support:
 - **📖 Documentation**: Check out [SCENES.md](docs/SCENES.md) for detailed task descriptions.
 - **🐛 Bug Reports**: [Open an issue](https://github.com/ARCLab-MIT/beavr-bench/issues/new) on GitHub.
 - **💬 Discussions**: Join the conversation in [GitHub Discussions](https://github.com/ARCLab-MIT/beavr-bench/discussions).
-- **📧 Contact**: Reach out to the maintainers at [arclab@mit.edu](mailto:arclab@mit.edu).
+- **📧 Contact**: Reach out to the maintainers at [alexposadas24@gmail.com](mailto:alexposadas24@gmail.com).
 
 ---
 
