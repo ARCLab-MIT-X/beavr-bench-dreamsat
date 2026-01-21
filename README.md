@@ -55,7 +55,7 @@ We include 4 main scenes designed to test physical intelligence. For a detailed 
 <table>
   <tr>
     <td align="center">
-      <b>📦 Pick and Place</b><br>
+      <b>Pick and Place</b><br>
       <img src="media/videos/pickplace.gif" width="400px">
     </td>
     <td align="center">
@@ -65,11 +65,11 @@ We include 4 main scenes designed to test physical intelligence. For a detailed 
   </tr>
   <tr>
     <td align="center">
-      <b>🖥️ Server Swap</b><br>
+      <b>Server Swap</b><br>
       <img src="media/videos/serverswap_ego.gif" width="400px">
     </td>
     <td align="center">
-      <b>🗺️ Vanishing Blueprint</b><br>
+      <b>Vanishing Blueprint</b><br>
       <img src="media/videos/vanishing_blueprint.gif" width="400px">
     </td>
   </tr>
