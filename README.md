@@ -197,8 +197,7 @@ Please check out our [Contributing Guidelines](CONTRIBUTING.md) and [Code of Con
 Need assistance? Here's how to get support:
 
 - **📖 Documentation**: Check out [SCENES.md](docs/SCENES.md) for detailed task descriptions.
-- **🐛 Bug Reports**: [Open an issue](https://github.com/ARCLab-MIT/beavr-bench/issues/new) on GitHub.
-- **💬 Discussions**: Join the conversation in [GitHub Discussions](https://github.com/ARCLab-MIT/beavr-bench/discussions).
+- **🐛 Bug Reports**: [Open an issue](https://github.com/ARCLab-MIT-X/beavr-bench/issues) on GitHub.
 - **📧 Contact**: Reach out to the maintainers at [alexposadas24@gmail.com](mailto:alexposadas24@gmail.com).
 
 ---
