@@ -41,6 +41,40 @@ Whether you are researching imitation learning, reinforcement learning, BEAVR Be
 
 ---
 
+## Demonstrations
+
+We include 4 main scenes designed to test physical intelligence. For a detailed breakdown of rules and task definitions, see [**SCENES.md**](docs/SCENES.md).
+
+<div align="center">
+<table>
+  <tr>
+    <td align="center">
+      <b>Pick and Place</b><br>
+      <img src="media/videos/pickplace.gif" width="400px">
+    </td>
+    <td align="center">
+      <b>Shell Game</b><br>
+      <img src="media/videos/shellgame.gif" width="400px">
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <b>Server Swap</b><br>
+      <img src="media/videos/serverswap.gif" width="400px">
+    </td>
+    <td align="center">
+      <b>Vanishing Blueprint</b><br>
+      <img src="media/videos/vanishing_blueprint.gif" width="400px">
+    </td>
+  </tr>
+</table>
+</div>
+
+> **Note:** Access our pre-collected demonstration datasets for imitation learning research on HuggingFace:
+> [🤗 **View Datasets on HuggingFace**](https://huggingface.co/collections/arclabmit/beavr-sim)
+
+---
+
 ## Installation
 
 ### Installation Prerequisites
@@ -96,40 +130,6 @@ docker run --rm --gpus all \
     -e MUJOCO_GL=egl \
     beavr-bench uv run beavr-eval --help
 ```
-
----
-
-## Demonstrations
-
-We include 4 main scenes designed to test physical intelligence. For a detailed breakdown of rules and task definitions, see [**SCENES.md**](docs/SCENES.md).
-
-<div align="center">
-<table>
-  <tr>
-    <td align="center">
-      <b>Pick and Place</b><br>
-      <img src="media/videos/pickplace.gif" width="400px">
-    </td>
-    <td align="center">
-      <b>Shell Game</b><br>
-      <img src="media/videos/shellgame.gif" width="400px">
-    </td>
-  </tr>
-  <tr>
-    <td align="center">
-      <b>Server Swap</b><br>
-      <img src="media/videos/serverswap.gif" width="400px">
-    </td>
-    <td align="center">
-      <b>Vanishing Blueprint</b><br>
-      <img src="media/videos/vanishing_blueprint.gif" width="400px">
-    </td>
-  </tr>
-</table>
-</div>
-
-> **Note:** Access our pre-collected demonstration datasets for imitation learning research on HuggingFace:
-> [🤗 **View Datasets on HuggingFace**](https://huggingface.co/collections/arclabmit/beavr-sim)
 
 ---
 
