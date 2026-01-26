@@ -193,7 +193,7 @@ class BaseTask(gym.Env, ABC):
                     name = mujoco.mj_id2name(self.model, mujoco.mjtObj.mjOBJ_KEY, i)
                     if name == "home":
                         mujoco.mj_resetDataKeyframe(self.model, self.data, i)
-                        logger.info("🔑 Loaded 'home' keyframe")
+                        logger.info("Loaded 'home' keyframe")
                         break
 
             mujoco.mj_forward(self.model, self.data)
