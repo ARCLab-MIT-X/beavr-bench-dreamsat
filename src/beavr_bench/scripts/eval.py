@@ -5,11 +5,11 @@ All standard lerobot-eval arguments are supported.
 
 Example:
     beavr-eval \
-        --policy.path=arclabmit/mobile_xarm7_act_beavrsim_serverswap_model \
+        --policy.path=arclabmit/xarm7_mact_beavrsim_pickplace_model \
         --env.type=beavr \
-        --env.scene=scene_serverswap \
-        --env.seed=24 \
-        --eval.batch_size=25 \
+        --env.scene=scene_pickplace \
+        --env.seed=26 \
+        --eval.batch_size=100 \
         --eval.n_episodes=1000
 """
 

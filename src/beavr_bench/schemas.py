@@ -98,7 +98,7 @@ class TaskRulesConfig(draccus.ChoiceRegistry):
     """
 
     # Common fields for all rules
-    max_steps: int = 750  # Maximum steps before truncation
+    max_steps: int = 400  # Maximum steps before truncation
     reward_scale: float = 1.0  # Scalar multiplier for all rewards
 
 
@@ -114,6 +114,7 @@ class ReachRuleConfig(TaskRulesConfig):
     drop_height_threshold: float = 0.1  # Height (m) below which object is "dropped"
     box_randomization_range: float = 0.09  # Random offset (m) for object placement
     distance_reward: bool = True  # Enable shaped reward based on dist to goal
+    max_steps: int = 350
 
 
 @TaskRulesConfig.register_subclass(TaskRuleType.SHELL_GAME)
@@ -130,6 +131,7 @@ class ShellGameRuleConfig(TaskRulesConfig):
     shuffle_max_swaps: int = 5  # Maximum number of cup swaps per episode
     cup_names: tuple[str, ...] = ("cup_a", "cup_b", "cup_c")  # Cup body names
     lift_height_threshold: float = 0.05  # Height (m) above table for "lifted"
+    max_steps: int = 400
 
 
 @TaskRulesConfig.register_subclass(TaskRuleType.VANISHING_BLUEPRINT)
@@ -152,6 +154,7 @@ class VanishingBlueprintRuleConfig(TaskRulesConfig):
     show_duration: float = 10.0  # Seconds to show hologram
     stack_tolerance: float = 0.05  # XY tolerance for "aligned" blocks (m)
     z_spacing: float = 0.04  # Vertical spacing (m), should match block height
+    max_steps: int = 750
 
 
 @TaskRulesConfig.register_subclass(TaskRuleType.SERVER_SWAP)
@@ -170,3 +173,4 @@ class ServerSwapRuleConfig(TaskRulesConfig):
     replacement_sled: str = "sled4"  # Spare sled on parts bench
     cue_duration: float = 5.0  # Seconds to show orange LED before vanish
     swap_tolerance: float = 0.1  # Tolerance (m) for sled placement
+    max_steps: int = 750
