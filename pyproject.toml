@@ -35,6 +35,7 @@ dependencies = [
 [project.scripts]
 beavr-eval = "beavr_bench.scripts.eval:main"
 beavr-train = "beavr_bench.scripts.train:main"
+beavr-preview = "beavr_bench.scripts.preview_scene:main"
 
 [build-system]
 requires = ["hatchling"]
