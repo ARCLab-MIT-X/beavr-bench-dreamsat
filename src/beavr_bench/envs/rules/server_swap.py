@@ -7,7 +7,7 @@ Transient failure signal memory challenge:
 """
 
 import logging
-from enum import Enum
+from enum import StrEnum
 
 import mujoco
 import numpy as np
@@ -22,7 +22,7 @@ from .base import BaseRules, RuleResult
 logger = logging.getLogger(__name__)
 
 
-class ServerSwapState(str, Enum):
+class ServerSwapState(StrEnum):
     """State machine states for ServerSwap rules."""
 
     CUE = "cue"  # Showing orange LED on failing slot

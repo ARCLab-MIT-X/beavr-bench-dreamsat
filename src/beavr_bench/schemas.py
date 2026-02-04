@@ -5,7 +5,7 @@ Inlined to avoid external dependencies on beavr-configs.
 """
 
 from dataclasses import dataclass
-from enum import Enum, StrEnum
+from enum import StrEnum
 
 import draccus
 
@@ -69,7 +69,7 @@ class CameraConfig:
         return (3, self.height, self.width)
 
 
-class TaskRuleType(str, Enum):
+class TaskRuleType(StrEnum):
     """Available rule implementations."""
 
     REACH = "reach"  # Success when object reaches goal zone
@@ -79,7 +79,7 @@ class TaskRuleType(str, Enum):
     SERVER_SWAP = "server_swap"  # Success when failing drive is swapped
 
 
-class RuleInfoKey(str, Enum):
+class RuleInfoKey(StrEnum):
     """Typed keys for RuleResult.info dictionary."""
 
     IS_SUCCESS = "is_success"  # bool: Task goal achieved (LeRobot compatible)
