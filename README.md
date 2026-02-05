@@ -82,12 +82,12 @@ We include 4 main scenes designed to test physical intelligence. For a detailed 
 - [uv](https://docs.astral.sh/uv/) (Python package manager)
 - CUDA-capable GPU (recommended)
 
-### Quick Start
+### Quick Start (Linux / macOS)
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/ARCLab-MIT/beavr-bench.git
-cd beavr-bench
+git clone https://github.com/ARCLab-MIT/beavr-bench-dreamsat.git
+cd beavr-bench-dreamsat
 
 # 2. Install dependencies with uv
 uv sync
@@ -95,6 +95,31 @@ uv sync
 # 3. Verify installation
 uv run beavr-eval --help
 ```
+
+### Quick Start (Windows)
+
+```powershell
+# 1. Install uv (Python package manager)
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+
+# 2. Close and reopen PowerShell (or run this to refresh PATH in current session)
+$env:Path += ";$env:USERPROFILE\.local\bin"
+
+# 3. Clone the repository
+git clone https://github.com/ARCLab-MIT/beavr-bench-dreamsat.git
+cd beavr-bench-dreamsat
+
+# 4. Install Python 3.12 (required for PyTorch compatibility)
+uv python install 3.12
+
+# 5. Install dependencies using Python 3.12
+uv sync --python 3.12
+
+# 6. Verify installation
+uv run beavr-eval --help
+```
+
+> **Note for Windows users:** This project requires Python 3.12. If you have a newer Python version (3.13+) installed globally, `uv` will automatically use the correct version for this project without affecting your system Python.
 
 ---
 
@@ -110,7 +135,7 @@ BEAVR Bench can be run with Docker.
 ### Building the Image
 
 ```bash
-docker build -t beavr-bench .
+docker build -t beavr-bench-dreamsat .
 ```
 
 ### Running with GPU Support
@@ -120,7 +145,7 @@ To run tests inside the container:
 ```bash
 docker run --rm --gpus all \
     -e MUJOCO_GL=egl \
-    beavr-bench
+    beavr-bench-dreamsat
 ```
 
 To run a specific script:
@@ -128,7 +153,7 @@ To run a specific script:
 ```bash
 docker run --rm --gpus all \
     -e MUJOCO_GL=egl \
-    beavr-bench uv run beavr-eval --help
+    beavr-bench-dreamsat uv run beavr-eval --help
 ```
 
 ### Windows Setup (Recommended)
@@ -166,17 +191,18 @@ BEAVR Bench runs on Windows through Docker with WSL2. This provides a complete L
    Then inside WSL2 (Ubuntu):
 
    ```bash
-   # Add NVIDIA package repository
-   distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
-   curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -
-   curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | \
-     sudo tee /etc/apt/sources.list.d/nvidia-docker.list
-   
-   # Install nvidia-container-toolkit
+   # 1. Configure the NVIDIA stable repository
+   curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg \
+     && curl -s -L https://nvidia.github.io/libnvidia-container/stable/deb/nvidia-container-toolkit.list | \
+       sed 's#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g' | \
+       sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list
+
+   # 2. Install the toolkit
    sudo apt-get update
    sudo apt-get install -y nvidia-container-toolkit
-   sudo systemctl restart docker
    ```
+
+   > **Important:** If you are using Docker Desktop, you do NOT need to run `sudo systemctl restart docker`. Instead, go to Docker Desktop **Settings > Resources > WSL Integration** and ensure "Ubuntu" is toggled **ON**, then click **Apply & Restart**.
 
 4. **Verify GPU Access**:
 
@@ -190,14 +216,14 @@ BEAVR Bench runs on Windows through Docker with WSL2. This provides a complete L
 
    ```bash
    # Clone the repository (if not already done)
-   git clone https://github.com/ARCLab-MIT/beavr-bench.git
-   cd beavr-bench
+   git clone https://github.com/ARCLab-MIT/beavr-bench-dreamsat.git
+   cd beavr-bench-dreamsat
    
    # Build the Docker image
-   docker build -t beavr-bench .
+   docker build -t beavr-bench-dreamsat .
    
    # Run tests
-   docker run --rm --gpus all -e MUJOCO_GL=egl beavr-bench
+   docker run --rm --gpus all -e MUJOCO_GL=egl beavr-bench-dreamsat
    ```
 
 ---
