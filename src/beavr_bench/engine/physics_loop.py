@@ -44,6 +44,9 @@ class PhysicsLoop:
         """Run the main physics loop until shutdown."""
         logger.info("Physics loop starting...")
 
+        # Initialize environment
+        self.task.reset()
+
         if self.use_viewer and self.task.viewer is None:
             self.task.init_viewer(key_callback=self._key_callback)
 
