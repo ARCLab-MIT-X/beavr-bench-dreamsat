@@ -34,6 +34,7 @@ def main():
 
     logger.info(f"Loading scene: {args.scene}")
     env = make_teleop_env(scene_name=args.scene)
+    env.reset()
 
     logger.info("Starting PhysicsLoop...")
     loop = PhysicsLoop(task=env, rate_hz=args.rate_hz)
