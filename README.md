@@ -131,6 +131,75 @@ docker run --rm --gpus all \
     beavr-bench uv run beavr-eval --help
 ```
 
+### Windows Setup (Recommended)
+
+BEAVR Bench runs on Windows through Docker with WSL2. This provides a complete Linux environment with GPU support.
+
+#### Prerequisites
+
+1. **Windows 10/11** (version 2004 or higher)
+2. **NVIDIA GPU** with updated drivers
+3. **Docker Desktop for Windows** - [Download here](https://docs.docker.com/desktop/install/windows-install/)
+4. **WSL2** - Usually enabled automatically by Docker Desktop
+5. **NVIDIA Container Toolkit** - [Installation guide](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html)
+
+#### Setup Steps
+
+1. **Install Docker Desktop**:
+   - Download and install [Docker Desktop for Windows](https://docs.docker.com/desktop/install/windows-install/)
+   - During installation, ensure "Use WSL 2 instead of Hyper-V" is selected
+   - Restart your computer when prompted
+
+2. **Enable WSL2 Integration**:
+   - Open Docker Desktop
+   - Go to Settings → Resources → WSL Integration
+   - Enable integration with your default WSL distribution
+
+3. **Install NVIDIA Container Toolkit**:
+
+   ```powershell
+   # In PowerShell as Administrator
+   wsl --install
+   wsl --set-default-version 2
+   ```
+
+   Then inside WSL2 (Ubuntu):
+
+   ```bash
+   # Add NVIDIA package repository
+   distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
+   curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -
+   curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | \
+     sudo tee /etc/apt/sources.list.d/nvidia-docker.list
+   
+   # Install nvidia-container-toolkit
+   sudo apt-get update
+   sudo apt-get install -y nvidia-container-toolkit
+   sudo systemctl restart docker
+   ```
+
+4. **Verify GPU Access**:
+
+   ```bash
+   docker run --rm --gpus all nvidia/cuda:12.0.0-base-ubuntu22.04 nvidia-smi
+   ```
+
+   You should see your GPU listed.
+
+5. **Build and Run BEAVR Bench**:
+
+   ```bash
+   # Clone the repository (if not already done)
+   git clone https://github.com/ARCLab-MIT/beavr-bench.git
+   cd beavr-bench
+   
+   # Build the Docker image
+   docker build -t beavr-bench .
+   
+   # Run tests
+   docker run --rm --gpus all -e MUJOCO_GL=egl beavr-bench
+   ```
+
 ---
 
 ## Usage
