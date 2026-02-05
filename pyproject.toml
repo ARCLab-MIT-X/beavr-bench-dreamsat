@@ -1,5 +1,5 @@
 [project]
-name = "beavr-bench-dreamsat"
+name = "beavr-bench"
 version = "1.0.0"
 description = "BEAVR Bench: Simulation benchmark suite for testing and evaluating physical AI algorithms"
 authors = [
