@@ -1,0 +1,15 @@
+{
+    "name": "test_mesh",
+    "robot_indices": {},
+    "initial_ctrl": [],
+    "cameras": [
+        {
+            "name": "view",
+            "obs_key": "view_image",
+            "width": 640,
+            "height": 480
+        }
+    ],
+    "robots": [],
+    "task_rules": null
+}
