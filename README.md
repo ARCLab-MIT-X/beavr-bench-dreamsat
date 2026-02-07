@@ -9,7 +9,7 @@
 [![arXiv](https://img.shields.io/badge/arXiv-2508.09606-b31b1b.svg)](https://arxiv.org/abs/2508.09606)
 [![HuggingFace](https://img.shields.io/badge/🤗-Datasets-yellow)](https://huggingface.co/collections/arclabmit/beavr-sim)
 
-**BEAVR Bench** is a simulation benchmark suite designed to test and evaluate physical AI algorithms.
+**BEAVR Bench** is a simulation suite designed for DreamSat test and evaluate physical AI algorithms.
 
 It unifies state-of-the-art tools like **[MuJoCo](https://github.com/google-deepmind/mujoco)**, **[MuJoCo Menagerie](https://github.com/google-deepmind/mujoco_menagerie)**, **[Isaac Lab](https://github.com/mujocolab/mjlab)**, and **[LeRobot](https://github.com/huggingface/lerobot)** into a single, cohesive benchmarking platform for robotic learning.
 
@@ -36,42 +36,21 @@ Whether you are researching imitation learning, reinforcement learning, BEAVR Be
 - **GPU Acceleration**: Run parallel environments on a single GPU for massive throughput.
 - **Unified API**: Seamless integration with **LeRobot** for training and evaluating policies.
 - **Robot & Scene Support**: Robots and scenes are pre-built using the **MuJoCo Menagerie** library in **MuJoCo**.
-- **Advanced Tasks**: Includes pre-built scenes testing memory, precision, and dexterity.
-- **IL & RL Ready**: 4 pre-built scenes with **[100 human demonstrations each](https://huggingface.co/collections/arclabmit/beavr-sim)** collected via [BEAVR-teleop](https://github.com/ARCLab-MIT/beavr-bot). Each scene is compliant with [gymnasium](https://github.com/Farama-Foundation/Gymnasium) and follows its own ruleset.
 
 ---
 
-## Demonstrations
-
-We include 4 main scenes designed to test physical intelligence. For a detailed breakdown of rules and task definitions, see [**SCENES.md**](docs/SCENES.md).
+## DreamSat Simulation Preview
 
 <div align="center">
 <table>
   <tr>
     <td align="center">
-      <b>Pick and Place</b><br>
-      <img src="media/videos/pickplace.gif" width="400px">
-    </td>
-    <td align="center">
-      <b>Shell Game</b><br>
-      <img src="media/videos/shellgame.gif" width="400px">
-    </td>
-  </tr>
-  <tr>
-    <td align="center">
-      <b>Server Swap</b><br>
-      <img src="media/videos/serverswap.gif" width="400px">
-    </td>
-    <td align="center">
-      <b>Vanishing Blueprint</b><br>
-      <img src="media/videos/vanishing_blueprint.gif" width="400px">
+      <b>DreamSat Preview</b><br>
+      <img src="media/dreamsat.png" width="400px">
     </td>
   </tr>
 </table>
 </div>
-
-> **Note:** Access our pre-collected demonstration datasets for imitation learning research on HuggingFace:
-> [🤗 **View Datasets on HuggingFace**](https://huggingface.co/collections/arclabmit/beavr-sim)
 
 ---
 
@@ -218,10 +197,10 @@ BEAVR Bench runs on Windows through Docker with WSL2. This provides a complete L
    # Clone the repository (if not already done)
    git clone https://github.com/ARCLab-MIT/beavr-bench-dreamsat.git
    cd beavr-bench-dreamsat
-   
+
    # Build the Docker image
    docker build -t beavr-bench-dreamsat .
-   
+
    # Run tests
    docker run --rm --gpus all -e MUJOCO_GL=egl beavr-bench-dreamsat
    ```
@@ -319,50 +298,6 @@ If you use BEAVR Bench in your research, please cite the following works:
   primaryClass  = {cs.RO},
   note          = {Accepted for presentation at ICCR 2025, Kyoto},
   url           = {https://arxiv.org/abs/2508.09606}
-}
-```
-
-### LeRobot
-
-```bibtex
-@misc{cadene2024lerobot,
-  author = {Cadene, Remi, et al.},
-  title = {LeRobot: State-of-the-art Machine Learning for Real-World Robotics in Pytorch},
-  howpublished = "\url{https://github.com/huggingface/lerobot}",
-  year = {2024}
-}
-```
-
-### MJLab
-
-```bibtex
-@software{Zakka_mjlab_Isaac_Lab_2025,
-  author = {Zakka, Kevin and Yi, Brent and Liao, Qiayuan and Le Lay, Louis},
-  title = {{mjlab: Isaac Lab API, powered by MuJoCo-Warp, for RL and robotics research.}},
-  url = {https://github.com/mujocolab/mjlab},
-  year = {2025}
-}
-```
-
-### MuJoCo Menagerie
-
-```bibtex
-@software{menagerie2022github,
-  author = {Zakka, Kevin and Tassa, Yuval and {MuJoCo Menagerie Contributors}},
-  title = {{MuJoCo Menagerie: A collection of high-quality simulation models for MuJoCo}},
-  url = {http://github.com/google-deepmind/mujoco_menagerie},
-  year = {2022},
-}
-```
-
-### Gymnasium
-
-```bibtex
-@article{towers2024gymnasium,
-  title={Gymnasium: A Standard Interface for Reinforcement Learning Environments},
-  author={Towers, Mark and Kwiatkowski, Ariel and Terry, Jordan and Balis, John U and De Cola, Gianluca and Deleu, Tristan and Goul{\~a}o, Manuel and Kallinteris, Andreas and Krimmel, Markus and KG, Arjun and others},
-  journal={arXiv preprint arXiv:2407.17032},
-  year={2024}
 }
 ```
 
