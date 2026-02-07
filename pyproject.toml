@@ -1,6 +1,6 @@
 [project]
 name = "beavr-bench-dreamsat"
-version = "1.0.0"
+version = "0.0.1"
 description = "BEAVR Bench: Simulation benchmark suite for testing and evaluating physical AI algorithms"
 authors = [
     { name = "BEAVR Team", email = "team@beavr.ai" },
